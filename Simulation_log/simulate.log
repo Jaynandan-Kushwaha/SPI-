@@ -1,0 +1,147 @@
+Time resolution is 1 ps
+
+============================================
+ SPI MASTER / SLAVE TESTBENCH
+============================================
+
+--------------------------------------------
+TEST MODE 0
+--------------------------------------------
+PASS WRITE CONTROL: 11
+PASS READ addr=01 mode=0 expected=11 got=11
+PASS WRITE DATA: 21
+PASS READ addr=03 mode=0 expected=21 got=21
+PASS READ addr=00 mode=0 expected=a5 got=a5
+
+--------------------------------------------
+TEST MODE 1
+--------------------------------------------
+PASS WRITE CONTROL: 22
+PASS READ addr=01 mode=1 expected=22 got=22
+PASS WRITE DATA: 32
+PASS READ addr=03 mode=1 expected=32 got=32
+PASS READ addr=00 mode=1 expected=a5 got=a5
+
+--------------------------------------------
+TEST MODE 2
+--------------------------------------------
+PASS WRITE CONTROL: 33
+PASS READ addr=01 mode=2 expected=33 got=33
+PASS WRITE DATA: 43
+PASS READ addr=03 mode=2 expected=43 got=43
+PASS READ addr=00 mode=2 expected=a5 got=a5
+
+--------------------------------------------
+TEST MODE 3
+--------------------------------------------
+PASS WRITE CONTROL: 44
+PASS READ addr=01 mode=3 expected=44 got=44
+PASS WRITE DATA: 54
+PASS READ addr=03 mode=3 expected=54 got=54
+PASS READ addr=00 mode=3 expected=a5 got=a5
+
+--------------------------------------------
+TEST CLOCK DIVIDERS
+--------------------------------------------
+PASS WRITE CONTROL: 55
+PASS READ addr=01 mode=0 expected=55 got=55
+PASS WRITE CONTROL: 66
+PASS READ addr=01 mode=0 expected=66 got=66
+PASS WRITE CONTROL: 77
+PASS READ addr=01 mode=0 expected=77 got=77
+PASS WRITE CONTROL: 88
+PASS READ addr=01 mode=0 expected=88 got=88
+
+--------------------------------------------
+TEST 8-BIT TRANSFER
+--------------------------------------------
+PASS 8-BIT TRANSFER
+
+--------------------------------------------
+TEST BACK-TO-BACK TRANSACTIONS
+--------------------------------------------
+PASS WRITE CONTROL: 91
+PASS WRITE DATA: 92
+PASS READ addr=01 mode=0 expected=91 got=91
+PASS READ addr=03 mode=0 expected=92 got=92
+
+--------------------------------------------
+TEST START WHILE BUSY
+--------------------------------------------
+PASS BUSY: master busy
+PASS START WHILE BUSY REJECTED
+
+--------------------------------------------
+TEST INVALID REGISTER WRITE
+--------------------------------------------
+PASS INVALID WRITE
+
+--------------------------------------------
+TEST INVALID REGISTER READ
+--------------------------------------------
+PASS INVALID READ: FF
+
+--------------------------------------------
+TEST WRITE TO READ-ONLY REGISTER
+--------------------------------------------
+PASS RO WRITE REJECTED
+
+--------------------------------------------
+TEST STATUS REGISTER
+--------------------------------------------
+PASS READ addr=02 mode=0 expected=01 got=01
+
+--------------------------------------------
+TEST RESET DURING TRANSACTION
+--------------------------------------------
+PASS RESET DURING TRANSACTION
+
+--------------------------------------------
+TEST EARLY CS
+--------------------------------------------
+PASS EARLY CS
+
+--------------------------------------------
+TEST INCORRECT CLOCK COUNT
+--------------------------------------------
+PASS INCORRECT CLOCK COUNT
+
+--------------------------------------------
+TEST MSB-FIRST MOSI ORDER
+--------------------------------------------
+PASS MOSI ORDER: first bit is MSB
+
+--------------------------------------------
+TEST DEVICE ID
+--------------------------------------------
+PASS READ addr=00 mode=0 expected=a5 got=a5
+
+--------------------------------------------
+TEST RANDOM TRANSACTIONS
+--------------------------------------------
+PASS WRITE CONTROL: 10
+PASS WRITE DATA: 21
+PASS READ addr=00 mode=0 expected=a5 got=a5
+PASS WRITE CONTROL: 13
+PASS WRITE DATA: 24
+PASS READ addr=00 mode=0 expected=a5 got=a5
+PASS WRITE CONTROL: 16
+PASS WRITE DATA: 27
+PASS READ addr=00 mode=0 expected=a5 got=a5
+PASS WRITE CONTROL: 19
+PASS WRITE DATA: 2a
+PASS READ addr=00 mode=0 expected=a5 got=a5
+PASS WRITE CONTROL: 1c
+PASS WRITE DATA: 2d
+PASS READ addr=00 mode=0 expected=a5 got=a5
+PASS WRITE CONTROL: 1f
+PASS WRITE DATA: 30
+PASS READ addr=00 mode=0 expected=a5 got=a5
+PASS WRITE CONTROL: 22
+PASS WRITE DATA: 33
+
+============================================
+TEST PASSED
+TOTAL ERRORS = 0
+============================================
+$finish called at time : 61380 ns : File "D:/Xilinx/spi/spi.srcs/sim_1/new/tb_spi_test.v" Line 781
