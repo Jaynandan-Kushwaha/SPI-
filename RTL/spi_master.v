@@ -116,10 +116,7 @@ always @(negedge clk or posedge reset) begin
 
                 if (div_count >= divider_value - 1'b1) begin
                     div_count <= 16'd0;
-
-                    // leading edge
                     if (sclk == cpol) begin
-                        // deferred completion for CPHA=1, one half period after the last sample
                         if (finish_after_sample) begin
                             busy <= 1'b0;
                             done <= 1'b1;
@@ -130,7 +127,6 @@ always @(negedge clk or posedge reset) begin
                             timeout_count <= 32'd0;
                             bit_count <= 5'd0;
                         end
-                        // CPHA=0: sample MISO
                         else if (cpha == 1'b0) begin
                             rx_shift <= {rx_shift[14:0], miso};
 
@@ -142,7 +138,6 @@ always @(negedge clk or posedge reset) begin
                                 bit_count <= bit_count + 1'b1;
                             end
                         end
-                        // CPHA=1: change MOSI
                         else begin
                             if (width16) begin
                                 mosi <= tx_shift[15];
@@ -157,9 +152,7 @@ always @(negedge clk or posedge reset) begin
                         if (!finish_after_sample)
                             sclk <= ~sclk;
                     end
-                    // trailing edge
                     else begin
-                        // CPHA=0: change MOSI
                         if (cpha == 1'b0) begin
                             if (finish_after_sample) begin
                                 busy <= 1'b0;
@@ -184,7 +177,6 @@ always @(negedge clk or posedge reset) begin
                                 sclk <= ~sclk;
                             end
                         end
-                        // CPHA=1: sample MISO, defer completion to next leading edge
                         else begin
                             rx_shift <= {rx_shift[14:0], miso};
 
